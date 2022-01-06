@@ -37,20 +37,20 @@
 // Bài 3
 const randomBtn = document.querySelector("#random")
 const background = document.querySelector("body")
-const p = document.querySelector("p")
+const div = document.querySelector("div")
+const input = document.querySelector(".color")
+const copyBtn = document.querySelector("#copy")
 randomBtn.addEventListener("click", function() {
-    let text = "#";
+    let color = "#";
     let character = "ABCDEF0123456789";
     for (let i = 0; i < 6; i++) 
-        text += character.charAt(Math.floor(Math.random() * character.length));
-    console.log(text);
-    background.style.background = `${text}`;
-    p.innerHTML = `${text}`;
-    const copyBtn = document.createElement("button");
-    p.appendChild(copyBtn);
-    copyBtn.innerHTML = "Copy"
-    copyBtn.addEventListener("click", function() {
-        p.select();
-        navigator.clipboard.writeText(p);
-    })
+        color += character.charAt(Math.floor(Math.random() * character.length));
+    console.log(color);
+    background.style.background = `${color}`;
+    input.value = `${color}`;
 });
+
+copyBtn.addEventListener("click", function() {
+    input.select();
+    navigator.clipboard.writeText(input.value);
+})
